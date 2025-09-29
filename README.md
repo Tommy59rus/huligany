@@ -29,15 +29,28 @@ IP	Count
 python huligany1.7.py input.txt
 ```
 ### 3. При первом запуске:
-- Скрипт создаст ip_rules.json и subnet_rules.json с дефолтными критериями.
+- Скрипт создаст `ip_rules.json` и `subnet_rules.json` с дефолтными критериями.
 - Спросит, хочешь ли ввести API-ключи для AbuseIPDB и ipinfo.io.
 - Спросит, выполнять ли проверку по FireHOL.
 - Предложит ввести свои кастомные критерии блокировки.
+- Предложит сохранить конфигурацию в файл, чтобы не вводить заново информацию.
 
 ## Настройка правил
 ### Правила для отдельных IP (`ip_rules.json`)
 Файл `ip_rules.json` содержит список правил в формате JSON:
-
+``` json
+[
+  { "condition": "AbuseScore >= 80", "description": "Очень высокая репутационная угроза (AbuseIPDB)" },
+  { "condition": "Feodo_Original == 1", "description": "IP является C&C-сервером ботнета" }
+]
+```
+- condition — логическое выражение на Python (поддерживаются `==, !=, >, >=, <, <=, and, or, not`)
+- Доступные поля:
+`AbuseScore`, `Count`, `AS`, `Count/24`, `Count/AS`, `Feodo_Original`, `firehol_level1`, `firehol_level2`, `firehol_level3`, `BlocklistDE`, `bruteforceblocker`, `EmergingThreats`, `Country`, `AbuseReports`
+**Пример кастомного правила:**
+```json
+{ "condition": "Country == 'RU' and AbuseScore >= 50", "description": "Российский IP с высоким AbuseScore" }
+```
 
 
 
