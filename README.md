@@ -47,6 +47,7 @@ python huligany1.7.py input.txt
 - condition — логическое выражение на Python (поддерживаются `==, !=, >, >=, <, <=, and, or, not`)
 - Доступные поля:
 `AbuseScore`, `Count`, `AS`, `Count/24`, `Count/AS`, `Feodo_Original`, `firehol_level1`, `firehol_level2`, `firehol_level3`, `BlocklistDE`, `bruteforceblocker`, `EmergingThreats`, `Country`, `AbuseReports`
+
 **Пример кастомного правила:**
 ```json
 { "condition": "Country == 'RU' and AbuseScore >= 50", "description": "Российский IP с высоким AbuseScore" }
