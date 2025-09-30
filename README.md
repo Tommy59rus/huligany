@@ -18,7 +18,7 @@ IP	Count
 2. Положи input.txt в ту же папку.
 3. Выполни:
 ```bash
-python huligany1.7.py input.txt
+python huligany1.7.py spisok_pidorasov.txt
 ```
 ### 3. При первом запуске:
 - Скрипт создаст `ip_rules.json` и `subnet_rules.json` с дефолтными критериями.
